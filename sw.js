@@ -1,5 +1,5 @@
 // Offline cache. Bump VERSION whenever any file changes so phones pick up the new copy.
-const VERSION = 'v1';
+const VERSION = 'v2';
 const CACHE = 'eng3q-' + VERSION;
 const FILES = [
   './', 'index.html', 'fonts.css', 'manifest.webmanifest',
