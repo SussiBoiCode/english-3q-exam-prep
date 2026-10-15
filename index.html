@@ -57,14 +57,14 @@ header .meta{font:500 12.5px var(--f-mono);color:var(--muted)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .themebtn .sun{display:block}:root:not([data-theme="light"]) .themebtn .moon{display:none}}
 /* nav */
 .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);padding-block:10px 8px;border-bottom:1px solid var(--line);display:grid;gap:8px}
-.rbar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.rbar{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
 .rbar button{font:600 14px var(--f-body);border:1.5px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 10px;border-radius:999px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rbar button .n{font-family:var(--f-mono);margin-right:4px}
 .rbar button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
 .tabs{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px;justify-self:start}
 .tabs button{font:600 13.5px var(--f-body);border:none;background:none;color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer}
 .tabs button[aria-selected="true"]{background:var(--accent-soft);color:var(--accent)}
-@media (max-width:560px){.rbar{grid-template-columns:repeat(2,minmax(0,1fr))}.tabs{justify-self:stretch}.tabs button{flex:1;padding:6px 6px}}
+@media (max-width:560px){.rbar{grid-template-columns:repeat(2,minmax(0,1fr))}.rbar button:last-child:nth-child(odd){grid-column:1/-1}.tabs{justify-self:stretch}.tabs button{flex:1;padding:6px 6px}}
 button:focus-visible,textarea:focus-visible,.hl:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .view{display:grid;gap:30px}
 section{display:grid;gap:12px}
@@ -197,7 +197,7 @@ footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);paddin
   </div>
 </div>
 <main id="main"></main>
-<footer>본문·어휘·구조표는 학교 배부 학습지 기준. 해석, 해설, 예상 문제와 예시 답안은 학습용으로 새로 작성했다. 시험 범위: Reading ①–④ (객관식 70% · 서술형 30%).</footer>
+<footer>본문·어휘·구조표는 학교 배부 학습지 기준. 해석, 해설, 예상 문제와 예시 답안은 학습용으로 새로 작성했다. 시험 범위: Reading ①–⑤ (객관식 70% · 서술형 30%, ⑤ Number는 서술형 미출제).</footer>
 </div>
 <div class="pop" id="pop" hidden></div>
 <script>
@@ -584,6 +584,73 @@ wr:[
 ]
 });
 
+
+R.push({
+id:'r5', num:'⑤', short:'Number', title:'Number',
+source:'고2 학력평가 기출 두 지문 (2025학년도 9월 · 2026학년도 6월) · 서술형 미출제, 객관식만',
+paras:[
+ {h:'Passage 1 · 2025학년도 9월 고2 학력평가'},
+ {n:'[1]',en:'Everything in the world exists on a {continuum}, whether in speed, size, or any other possible {descriptor} you could think of. {Still|still,}, we create and {mindlessly} {adopt} sharp {distinctions|distinction}, and those distinctions change lives far more dramatically than {marginal} differences ever do. Indeed, all differences are [[arbitrary]], but drawing hard lines between {categories|category} hides this [[arbitrariness|arbitrary]] and can be {severely} damaging. I call this resulting damage “the {borderline} effect.” The examples are endless. Someone’s IQ is 69 and someone else’s is 70 — but only the score of 70 is {deemed|deem} to be within the {range} of normal. We don’t have to be {statisticians|statistician} to know there is not a meaningful difference between 69 and 70. Yet once the person with the lower score is {labeled|label} “{cognitively impaired},” his or her life will {unfold} differently than the person with a one-point advantage.',
+  ko:'세상의 모든 것은 속도든, 크기든, 혹은 여러분이 생각할 수 있는 다른 어떤 기술어(記述語)든 연속체 위에 존재한다. 그런데도 우리는 뚜렷한 구분을 만들어 내고 무심코 받아들이며, 그 구분은 미미한 차이가 그러는 것보다 훨씬 더 극적으로 삶을 바꾼다. 실제로 모든 차이는 자의적이지만, 범주 사이에 엄격한 선을 긋는 것은 이 자의성을 감추고 심각한 해를 끼칠 수 있다. 나는 그 결과로 생기는 피해를 ‘경계선 효과’라고 부른다. 그 예는 끝이 없다. 어떤 사람의 IQ는 69이고 다른 사람은 70이지만, 70점만 정상 범위 안에 있는 것으로 여겨진다. 69와 70 사이에 의미 있는 차이가 없다는 것을 알기 위해 통계학자가 될 필요는 없다. 그러나 더 낮은 점수를 받은 사람이 일단 ‘인지 장애가 있다’고 분류되면, 그 사람의 삶은 1점 앞선 사람과는 다르게 전개될 것이다.'},
+ {h:'Passage 2 · 2026학년도 6월 고2 전국연합학력평가'},
+ {n:'[2]',en:'For each {objective} {probability} — from one percent to 100 percent — we want to know the {subjective} probability {weight}. When we make decisions, do we treat a one-percent chance just like one percent, or like something else? Events that could happen but aren’t likely — low-probability events — can be {defined|define} as probabilities up to about 25 percent. Low-probability events tend to {factor|factor into} more {into|factor into} decisions than they should. That is, an event that has an objective one-percent chance of occurring could subjectively seem like it has a five-percent chance of occurring. We {overestimate} the {likelihood} of these low-probability events. {In general|in general}, the smaller the probability, the more we overestimate its likelihood. For example, people who play the lottery are often {optimistic} about winning. However, the {odds} of a single ticket winning the largest, most popular U.S. lotteries are {on the order of} one in 175 million.',
+  ko:'1퍼센트부터 100퍼센트까지 각각의 객관적 확률에 대해, 우리는 주관적 확률 가중치를 알고 싶어 한다. 우리는 결정을 내릴 때 1퍼센트의 가능성을 정확히 1퍼센트처럼 다룰까, 아니면 다른 무언가처럼 다룰까? 일어날 수는 있지만 가능성이 높지 않은 사건, 즉 낮은 확률의 사건은 약 25퍼센트까지의 확률로 정의될 수 있다. 낮은 확률의 사건은 마땅한 정도보다 더 많이 결정에 반영되는 경향이 있다. 다시 말해, 객관적으로 1퍼센트의 발생 가능성이 있는 사건이 주관적으로는 5퍼센트의 발생 가능성이 있는 것처럼 보일 수 있다. 우리는 이러한 낮은 확률 사건의 가능성을 과대평가한다. 일반적으로 확률이 작을수록 우리는 그 가능성을 더 많이 과대평가한다. 예를 들어 복권을 사는 사람들은 흔히 당첨에 대해 낙관적이다. 하지만 미국에서 가장 크고 가장 인기 있는 복권에서 한 장의 복권이 당첨될 확률은 1억 7,500만분의 1 정도이다.'}
+],
+gloss:{'arbitrary':'자의(恣意)적인'},
+vocab:[
+ ['[1]',[['continuum','연속체'],['descriptor','기술어(정보의 분류·색인에 쓰는 어구)'],['Still,','그런데도, 그럼에도 불구하고'],['mindlessly','생각 없이, 무심코'],['adopt','채택하다'],['distinction','구분, 차이'],['marginal','미미한, 근소한'],['category','범주, 부류, 종류'],['severely','심하게'],['borderline','경계선상의, 경계선'],['deem','~로 여기다, 생각하다'],['range','범위'],['statistician','통계학자'],['label','라벨을 붙이다, 분류하다'],['cognitively impaired','인지적으로 손상된, 인지 장애가 있는'],['unfold','전개되다, 펼쳐지다']]],
+ ['[2]',[['objective','객관적인'],['subjective','주관적인'],['probability','개연성, 확률'],['weight','무게, 가중치'],['define','정의하다'],['factor into','~을 요인으로 포함하다'],['overestimate','과대평가하다'],['likelihood','가능성'],['in general','보통, 대개'],['optimistic','낙관적인'],['odds','가능성, 확률'],['on the order of','~와 비슷한']]]
+]
+});
+
+Object.assign(R.find(r=>r.id==='r5'),{
+bookTitle:'학습지 문제 (1–2)',
+bookQs:[
+ {q:'[1] 1. 윗글의 제목으로 가장 적절한 것은? (2025학년도 9월 고2 학력평가)',opts:['Drawing Distinct Lines: Is It Appropriate?','Stick to Your Ideas, Listen to Your Heart','What Should Be Done to Improve IQ Testing?','Accepting Differences: How to Live in Harmony','Myths and Truths about Human Cognitive Abilities'],ans:0,ex:'모든 것은 연속체인데 선을 그어 구분하면 자의성이 가려지고 피해(경계선 효과)가 생긴다 → “뚜렷한 선 긋기, 적절한가?” ③ IQ는 예시일 뿐, 검사 개선은 다루지 않는다. ④ 조화로운 공존 이야기가 아니다.'},
+ {q:'[2] 2. 윗글의 요지로 가장 적절한 것은? (2026학년도 6월 고2 전국연합학력평가)',opts:['비합리적 결정이 반복되면 조직이 실패할 확률이 높아진다.','우리는 낮은 확률 사건의 발생 가능성을 과대평가한다.','행운에만 의존하는 것은 개인의 내적 성장을 저해한다.','우리는 단순한 사건을 복잡하게 해석하는 경향이 있다.','다양한 가능성을 고려하면 최선의 의사 결정을 내릴 수 있다.'],ans:1,ex:'주제문: <i>We overestimate the likelihood of these low-probability events.</i> 1%→5% 예시와 복권 예시가 이를 뒷받침한다.'}
+],
+struct:{head:['Part','Topic','Details'],rows:[
+ ['<b>[1]</b>','The Borderline Effect','▪ Fact : everything exists on a ( {{continuum}} )<br>▪ Problem : we create and mindlessly adopt ( {{sharp distinctions}} ), which change lives more than ( {{marginal}} ) differences do<br>▪ Claim : all differences are ( {{arbitrary}} ), and drawing hard lines hides this → “the ( {{borderline}} ) effect”<br>▪ Example : IQ ( {{69}} ) vs. 70 — no meaningful difference, but only 70 is “normal”; the lower score is labeled “( {{cognitively impaired}} )” → life unfolds ( {{differently}} )'],
+ ['<b>[2]</b>','Overestimating Low Probabilities','▪ Question : do we treat a one-percent chance just like one percent?<br>▪ Definition : low-probability events = probabilities up to about ( {{25}} ) percent<br>▪ Main idea : we ( {{overestimate}} ) the likelihood of low-probability events (objective 1% → subjectively ( {{5}} )%)<br>▪ Rule : the ( {{smaller}} ) the probability, the more we overestimate<br>▪ Example : lottery players are ( {{optimistic}} ), but the odds are about one in ( {{175 million}} )']
+]},
+flowTitle:'두 지문, 같은 주제: 숫자를 있는 그대로 보지 못하는 우리',
+flowNote:'두 글 모두 <b>사실(질문) → 주장 → 예시</b> 순서다. 제목·요지·빈칸은 주장 문장에서, 순서·삽입은 <b>Still / Indeed / Yet</b>, <b>That is / In general / However</b> 같은 연결어에서 나온다.',
+flow:[['[1] 앞','사실 → 문제','모든 것은 연속체 위에 있다. <b>Still</b>, 우리는 날카로운 구분을 만들고 그 구분이 삶을 크게 바꾼다'],['[1] 뒤','주장 + 예시','선 긋기는 자의성을 숨기고 해를 끼친다 = 경계선 효과. IQ 69 vs. 70',1],['[2] 앞','질문 → 정의','1%를 정말 1%로 다룰까? 낮은 확률 사건 = 약 25%까지'],['[2] 뒤','주장 + 예시','낮은 확률을 과대평가한다(1% → 5%처럼). 작을수록 더. 복권 1억 7,500만분의 1',1]],
+chain:{title:'두 지문 비교',sep:'vs',items:['[1] 경계선 효과: 거의 같은 숫자(69 vs. 70)를 선 하나로 <b>다르게</b> 취급','[2] 확률 과대평가: 아주 작은 숫자(1%)를 실제보다 <b>크게</b> 느낌'],note:'공통점: 사람은 숫자를 객관적인 그대로 받아들이지 않는다. [1]은 <b>구분(선 긋기)</b>의 문제, [2]는 <b>지각(느낌)</b>의 문제라는 차이도 기억하자.'},
+notes:[
+ ['[1]','경계선 효과','연속적인 차이에 날카로운 선을 그으면 그 자의성이 가려지고 심각한 피해(경계선 효과)가 생긴다. 제목: <i>Drawing Distinct Lines: Is It Appropriate?</i>',['<em>whether in speed, size, or any other possible descriptor you could think of</em>: whether A, B, or C = A든 B든 C든. descriptor 뒤 목적격 관계대명사 생략.','<em><b>Still</b>, we create and mindlessly adopt sharp distinctions</em>: Still = 그런데도 (역접 연결어, ‘아직’ 아님). 사실 → 문제 전환점.','<em>far more dramatically than marginal differences ever <b>do</b></em>: 대동사 do = change lives. far / much / even / still / a lot + 비교급 강조.','<em><b>drawing</b> hard lines between categories <b>hides</b> this arbitrariness and <b>can be</b> severely damaging</em>: 동명사 주어 → 단수 동사. hides와 can be가 병렬.','<em>I call this <b>resulting</b> damage “the borderline effect.”</em>: call + O + C (5형식). resulting = 결과로 생기는 (현재분사).','<em>only the score of 70 <b>is deemed to be</b> within the range of normal</em>: deem O (to be) C의 수동태.','<em>We <b>don’t have to</b> be statisticians to know…</em>: ~할 필요 없다 (must not ‘~하면 안 된다’와 구별).','<em><b>Yet once</b> the person with the lower score <b>is labeled</b> “cognitively impaired,” his or her life <b>will unfold</b> differently</em>: once = 일단 ~하면 (접속사). 시간·조건 부사절은 현재시제, 분류‘되는’ 것이므로 수동태. unfold는 자동사.']],
+ ['[2]','낮은 확률의 과대평가','사람들은 낮은 확률 사건이 일어날 가능성을 실제보다 크게 느끼며, 확률이 작을수록 더 과대평가한다. 요지: ②',['<em>For each objective probability — from one percent to 100 percent — we want to know…</em>: 대시(—) 사이는 삽입구.','<em>do we treat a <b>one-percent</b> chance just like one percent</em>: treat A like B. 하이픈으로 연결된 형용사 → percent는 단수형.','<em><b>Events</b> that could happen but aren’t likely — low-probability events — <b>can be defined</b> as…</em>: 주어(복수)와 동사 사이가 멀다. 정의‘되는’ 것이므로 수동태.','<em>tend to factor more into decisions than they <b>should</b></em>: should (factor into decisions)의 생략.','<em><b>That is</b>, an event that has an objective one-percent chance of occurring could subjectively <b>seem like</b> it has…</em>: That is = 즉 (재진술). seem like + 절.','<em><b>The smaller</b> the probability, <b>the more</b> we overestimate its likelihood.</em>: the 비교급 ~, the 비교급 … = ~할수록 더 …하다. (the probability is에서 is 생략)','<em>the odds of <b>a single ticket</b> winning … <b>are</b> on the order of one in 175 million</em>: a single ticket = 동명사 winning의 의미상 주어. 주어 the odds(복수) → are.']]
+],
+traps:[['<y>mindlessly</y> adopt sharp distinctions','carefully'],['<y>marginal</y> differences','huge'],['all differences are <y>arbitrary</y>','natural'],['drawing hard lines <y>hides</y> this arbitrariness','reveals'],['can be <y>severely</y> damaging','slightly'],['life will unfold <y>differently</y>','similarly'],['factor <y>more</y> into decisions than they should','less'],['we <y>overestimate</y> the likelihood','underestimate'],['the <y>smaller</y> the probability, the more we overestimate','larger'],['lottery players are <y>optimistic</y> about winning','pessimistic']],
+mc:[
+ {type:'어법',prompt:'다음 글의 밑줄 친 부분 중, 어법상 틀린 것은?',
+  passage:'Still, we create and mindlessly adopt sharp distinctions, and those distinctions change lives far more dramatically than marginal differences ever <u>①do</u>. Indeed, all differences are arbitrary, but drawing hard lines between categories <u>②hide</u> this arbitrariness and can be severely damaging. I call this <u>③resulting</u> damage “the borderline effect.” … Someone’s IQ is 69 and someone else’s is 70 — but only the score of 70 is deemed <u>④to be</u> within the range of normal. … Yet once the person with the lower score <u>⑤is labeled</u> “cognitively impaired,” his or her life will unfold differently than the person with a one-point advantage.',
+  opts:['①','②','③','④','⑤'],ans:1,ex:'동명사 주어 <i>drawing hard lines between categories</i>는 단수 → <b>hides</b>. ① 대동사 do = change lives ③ ‘결과로 생기는’ 현재분사 ④ be deemed to be ⑤ 시간 부사절 현재시제 + 분류‘되는’ 수동.'},
+ {type:'어법',prompt:'다음 글의 밑줄 친 부분 중, 어법상 틀린 것은?',
+  passage:'Events that could happen but aren’t likely — low-probability events — <u>①can be defined</u> as probabilities up to about 25 percent. Low-probability events tend <u>②to factor</u> more into decisions than they should. That is, an event <u>③that</u> has an objective one-percent chance of occurring could subjectively seem like it has a five-percent chance of occurring. … In general, the smaller the probability, <u>④the most</u> we overestimate its likelihood. … However, the odds of a single ticket winning the largest, most popular U.S. lotteries <u>⑤are</u> on the order of one in 175 million.',
+  opts:['①','②','③','④','⑤'],ans:3,ex:'‘the 비교급 ~, the 비교급 …’ 구문 → <b>the more</b>. ① 주어 Events(복수), 정의‘되는’ 수동 ② tend + to부정사 ③ 주격 관계대명사 ⑤ 주어 the odds(복수) → are.'},
+ {type:'어휘',prompt:'다음 글의 밑줄 친 부분 중, 문맥상 낱말의 쓰임이 적절하지 않은 것은?',
+  passage:'Everything in the world exists on a <u>①continuum</u>, whether in speed, size, or any other possible descriptor you could think of. Still, we create and <u>②mindlessly</u> adopt sharp distinctions, and those distinctions change lives far more dramatically than <u>③marginal</u> differences ever do. Indeed, all differences are arbitrary, but drawing hard lines between categories <u>④reveals</u> this arbitrariness and can be severely damaging. … We don’t have to be statisticians to know there is not a <u>⑤meaningful</u> difference between 69 and 70.',
+  opts:['①','②','③','④','⑤'],ans:3,ex:'선을 그으면 차이가 자의적이라는 사실이 <b>가려진다(hides)</b>. 가려지기 때문에 ‘심각한 피해’로 이어진다. reveals(드러내다)는 정반대.'},
+ {type:'순서 (A)(B)(C)',prompt:'주어진 글 다음에 이어질 글의 순서로 가장 적절한 것은?',
+  passage:'For each objective probability — from one percent to 100 percent — we want to know the subjective probability weight. When we make decisions, do we treat a one-percent chance just like one percent, or like something else?<span class="box">(A) That is, an event that has an objective one-percent chance of occurring could subjectively seem like it has a five-percent chance of occurring. We overestimate the likelihood of these low-probability events.</span><span class="box">(B) Events that could happen but aren’t likely — low-probability events — can be defined as probabilities up to about 25 percent. Low-probability events tend to factor more into decisions than they should.</span><span class="box">(C) In general, the smaller the probability, the more we overestimate its likelihood. For example, people who play the lottery are often optimistic about winning. However, the odds of a single ticket winning the largest, most popular U.S. lotteries are on the order of one in 175 million.</span>',
+  opts:['(A) – (C) – (B)','(B) – (A) – (C)','(B) – (C) – (A)','(C) – (A) – (B)','(C) – (B) – (A)'],ans:1,ex:'(B) 낮은 확률 사건의 정의 + “실제보다 더 반영된다” → (A) <i>That is</i>로 1% → 5% 재진술, <i>these low-probability events</i>가 (B)를 가리킴 → (C) <i>In general</i> 일반화 + 복권 예시.'},
+ {type:'내용 일치 (ㄱㄴㄷ)',prompt:'두 글의 내용과 일치하는 것만을 있는 대로 고른 것은?',
+  passage:'ㄱ. In the first passage, a score of 69 is deemed to be within the range of normal.<br>ㄴ. The writer of the first passage calls the damage caused by drawing hard lines “the borderline effect.”<br>ㄷ. In the second passage, low-probability events are defined as probabilities up to about 25 percent.<br>ㄹ. According to the second passage, people tend to underestimate the likelihood of low-probability events.',
+  opts:['ㄱ, ㄴ','ㄴ, ㄷ','ㄷ, ㄹ','ㄱ, ㄴ, ㄷ','ㄴ, ㄷ, ㄹ'],ans:1,ex:'ㄱ: 정상 범위로 여겨지는 것은 <b>70점</b>뿐이다. ㄹ: 낮은 확률 사건의 가능성은 <b>과대평가(overestimate)</b>한다.'},
+ {type:'빈칸',prompt:'다음 빈칸에 들어갈 말로 가장 적절한 것은?',
+  passage:'Low-probability events tend to factor more into decisions than they should. That is, an event that has an objective one-percent chance of occurring could subjectively seem like it has a five-percent chance of occurring. We ________________ of these low-probability events.',
+  opts:['overestimate the likelihood','ignore the importance','accurately calculate the odds','underestimate the danger','forget the outcomes'],ans:0,ex:'1%를 5%처럼 느낀다 = 실제보다 크게 본다 → 가능성을 <b>과대평가</b>한다. 바로 뒤 <i>the more we overestimate its likelihood</i>와도 이어진다.'},
+ {type:'문장 삽입',prompt:'글의 흐름으로 보아, 주어진 문장이 들어가기에 가장 적절한 곳은?',
+  passage:'<b>We don’t have to be statisticians to know there is not a meaningful difference between 69 and 70.</b><br><br>Indeed, all differences are arbitrary, but drawing hard lines between categories hides this arbitrariness and can be severely damaging. ( ① ) I call this resulting damage “the borderline effect.” ( ② ) The examples are endless. ( ③ ) Someone’s IQ is 69 and someone else’s is 70 — but only the score of 70 is deemed to be within the range of normal. ( ④ ) Yet once the person with the lower score is labeled “cognitively impaired,” his or her life will unfold differently than the person with a one-point advantage. ( ⑤ )',
+  opts:['①','②','③','④','⑤'],ans:3,ex:'69와 70이 처음 나온 <b>뒤</b>여야 한다. 또 <i>Yet</i>(그러나)이 “의미 있는 차이는 없다”와 “그런데도 삶이 달라진다”를 대조하므로 Yet 바로 앞인 ④.'},
+ {type:'요약문 (A)(B)',prompt:'Passage 1의 내용을 요약하고자 한다. 빈칸 (A), (B)에 들어갈 말로 가장 적절한 것은?',
+  passage:'Although differences in the world are <b>(A)</b>, drawing sharp lines between categories can cause people with nearly identical traits to be treated very <b>(B)</b>.',
+  opts:['continuous — differently','continuous — equally','sharp — differently','meaningful — fairly','clear — similarly'],ans:0,ex:'모든 것은 <i>continuum</i>(연속체) 위에 있다 → (A) <b>continuous</b>. 69점과 70점처럼 거의 같은 사람의 삶이 <i>unfold differently</i> → (B) <b>differently</b>.'}
+],
+wr:[]
+});
+
 </script>
 <script>
 const K=['①','②','③','④','⑤'],AB=['A','B','C','D'];
@@ -685,14 +752,15 @@ function build(r){
   }
   // book questions
   if(r.bookQs){
-    const bs=h('section',null,`<span class="eyebrow">학습지 문제</span><h2>내용 이해 문제 (1–27)</h2><p class="muted" style="font-size:14px">객관식은 누르면 바로 채점된다. 서술형은 직접 써 본 뒤 예시 답안과 비교하자.</p>`);
+    const bs=h('section',null,`<span class="eyebrow">학습지 문제</span><h2>${r.bookTitle||'내용 이해 문제 (1–27)'}</h2><p class="muted" style="font-size:14px">객관식은 누르면 바로 채점된다. 서술형은 직접 써 본 뒤 예시 답안과 비교하자.</p>`);
     const ql=h('div','qlist');
     r.bookQs.forEach(q=>{
       const d=h('div','q',`<p class="en"><b>${q.q}</b></p>${q.ko?`<p class="ko">${q.ko}</p>`:''}`);
       if(q.opts){
         const o=h('div','opts');
-        q.opts.forEach((t,j)=>{const b=h('button','opt',`<span class="k">${AB[j]})</span><span>${t}</span>`);b.onclick=()=>{$$('.opt',o).forEach((x,k)=>{x.disabled=true;if(k===q.ans)x.classList.add('right')});if(j!==q.ans)b.classList.add('wrong')};o.appendChild(b)});
-        d.appendChild(o);
+        const ex=q.ex?h('p','explain',q.ex):null;if(ex)ex.hidden=true;
+        q.opts.forEach((t,j)=>{const b=h('button','opt',`<span class="k">${q.opts.length===5?K[j]:AB[j]+')'}</span><span>${t}</span>`);b.onclick=()=>{$$('.opt',o).forEach((x,k)=>{x.disabled=true;if(k===q.ans)x.classList.add('right')});if(j!==q.ans)b.classList.add('wrong');if(ex){ex.innerHTML=(j===q.ans?'<b>정답!</b> ':'<b>정답은 '+K[q.ans]+'.</b> ')+q.ex;ex.hidden=false}};o.appendChild(b)});
+        d.appendChild(o);if(ex)d.appendChild(ex);
       }else{
         d.appendChild(h('textarea'));d.lastChild.placeholder='영어로 답을 써 보자…';
         const g=h('button','ghost','예시 답안 보기'),m=h('div','model',`<span>${q.model}</span><span class="tip">${q.tip}</span>`);m.hidden=true;
@@ -716,14 +784,15 @@ function build(r){
   ns.lastChild.style.paddingBlock='4px';
   st.appendChild(ns);
   st.appendChild(h('section',null,`<span class="eyebrow">어휘 함정</span><h2>어휘 문제에서 바꿔칠 만한 표현</h2><div class="pairs">${r.traps.map(([a,no])=>`<div class="pair"><span>${a.replace(/<y>/g,'<span class="yes">').replace(/<\/y>/g,'</span>')}</span><span class="no">${no}</span></div>`).join('')}</div>`));
-  st.appendChild(h('section',null,`<span class="eyebrow">서술형 대비</span><h2>서술형 감점을 막는 30초 점검</h2><div class="panel"><ol class="checklist"><li><span>주어진 단어·힌트에 동그라미. 하나도 빠짐없이, <b>요구한 형태로</b> 썼는가? (같은 뜻의 다른 단어로 바꾸면 감점)</span></li><li><span>힌트에 문법 구조가 적혀 있다면 그 구조를 그대로 썼는가?</span></li><li><span>빈칸 <b>뒤</b>에 이어지는 말과도 맞는가? (수 일치, 관계사절의 동사 등)</span></li><li><span>질문이 두 개 이상(무엇/왜)이면 각각 답했는가? 단어 수·문장 수 조건은 지켰는가?</span></li></ol></div>`));
+  if(r.wr.length)st.appendChild(h('section',null,`<span class="eyebrow">서술형 대비</span><h2>서술형 감점을 막는 30초 점검</h2><div class="panel"><ol class="checklist"><li><span>주어진 단어·힌트에 동그라미. 하나도 빠짐없이, <b>요구한 형태로</b> 썼는가? (같은 뜻의 다른 단어로 바꾸면 감점)</span></li><li><span>힌트에 문법 구조가 적혀 있다면 그 구조를 그대로 썼는가?</span></li><li><span>빈칸 <b>뒤</b>에 이어지는 말과도 맞는가? (수 일치, 관계사절의 동사 등)</span></li><li><span>질문이 두 개 이상(무엇/왜)이면 각각 답했는가? 단어 수·문장 수 조건은 지켰는가?</span></li></ol></div>`));
   root.appendChild(st);
   /* ---- 문제 풀기 ---- */
   const te=h('div','view');te.dataset.t='test';te.hidden=true;
   const sc=h('div','panel score',`<span>객관식</span><b>0 / ${r.mc.length}</b><span class="muted">0문항 풀이</span>`);
   te.appendChild(sc);te.appendChild(mcBlock(r.mc,sc,''));
-  te.appendChild(h('section',null,`<span class="eyebrow">서술형${r.wr.some(w=>w.stem)?' · 학교 작문 연습 유형 포함':''}</span><p class="muted" style="font-size:14px">체크 표시는 <b>조건</b>만 확인한다(의미 채점 아님). 다 쓴 뒤 모범 답안과 비교하자.</p>`));
-  te.appendChild(wrBlock(r.wr));
+  if(r.wr.length){te.appendChild(h('section',null,`<span class="eyebrow">서술형${r.wr.some(w=>w.stem)?' · 학교 작문 연습 유형 포함':''}</span><p class="muted" style="font-size:14px">체크 표시는 <b>조건</b>만 확인한다(의미 채점 아님). 다 쓴 뒤 모범 답안과 비교하자.</p>`));
+  te.appendChild(wrBlock(r.wr));}
+  else te.appendChild(h('section',null,`<span class="eyebrow">서술형</span><p class="muted" style="font-size:14px">Reading ${r.num} ${r.short}은(는) 서술형이 출제되지 않는다. 위 객관식과 본문 탭의 학습지 문제에 집중하자.</p>`));
   root.appendChild(te);
   return root;
 }
